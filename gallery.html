@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Namibsroos Gallery</title>
+    <style>
+        nav {
+    position: fixed;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    z-index: 1000;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
+    color: white;
+    font-size: 24px;
+    text-decoration: none;
+    flex: 1;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    flex: 2;
+}
+
+.nav-links li a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    transition: 0.3s;
+}
+
+.nav-links li a:hover {
+    color: #6eaddd;
+}
+
+.cta-button {
+    background: #5dbfe6;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: 0.3s;
+    flex: 0 0 120px;
+    text-align: center;
+}
+
+.cta-button:hover {
+    background: #6eaddd;
+}
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 50px;
+    background: transparent;
+    border: none;
+    z-index: 1001;
+}
+
+.hamburger div {
+    width: 100%;
+    height: 3px;
+    background: white;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+/* Mobile responsive styles */
+@media screen and (max-width: 768px) {
+    .nav-links {
+        display: none;
+        width: 100%;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        background: rgba(0, 0, 0, 0.9);
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 0;
+        transition: all 0.3s ease;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .cta-button {
+        display: none;
+    }
+}
+
+.hero {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.hero video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    animation: slideInFromLeft 1s ease-out;
+}
+
+.hero-content p {
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+    animation: slideInFromLeft 1s ease-out;
+}
+
+.hero-button {
+    display: none;
+    background: #5dbfe6;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: 0.3s;
+    margin-top: 20px;
+}
+
+.hero-button:hover {
+    background: #6eaddd;
+}
+
+@media screen and (max-width: 768px) {
+    .hero-button {
+        display: inline-block;
+    }
+}
+
+@keyframes slideInFromLeft {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.footer {
+    background: #333;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-links {
+    margin-top: 10px;
+}
+
+.footer-links a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 15px;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: #6eaddd;
+}
+
+.scroll-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #5dbfe6;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 10px;
+    font-size: 24px;
+    cursor: pointer;
+    display: none;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.scroll-to-top:hover {
+    background-color: #6eaddd;
+    transform: translateY(-3px);
+}
+
+.gallery {
+    padding: 80px 20px;
+    background: #f9f9f9;
+}
+
+.gallery-heading {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    color: #333;
+}
+
+.gallery-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.gallery-item {
+    flex: 1 1 300px;
+    max-width: 400px;
+    height: 300px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+    .gallery-item {
+        flex: 1 1 100%;
+    }
+}
+
+
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">NAMIBSROOS</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="rates.html">Rates</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <a href="https://www.booking.com/Share-FCaDwyw" class="cta-button">Book Now</a>
+            <div class="hamburger">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="hero">
+        <video autoplay muted loop>
+            <source src="https://videos.pexels.com/video-files/1723017/1723017-uhd_2560_1440_25fps.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="hero-content">
+            <h1>Luxury Beachfront Villa</h1>
+            <p>Experience the epitome of luxury and relaxation</p>
+            <a href="https://www.booking.com/Share-FCaDwyw" class="hero-button">Book Now</a>
+        </div>
+    </div>
+
+    <section class="gallery">
+        <h2 class="gallery-heading">Villa Photo Gallery</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="https://wildernest.co.za/wp-content/uploads/2023/04/Ocean-Room-16.webp" alt="Luxury Bedroom">
+            </div>
+            <div class="gallery-item">
+                <img src="https://wildernest.co.za/wp-content/uploads/2023/04/Ocean-Room-8.webp" alt="Luxury Bedroom">
+            </div>
+            <div class="gallery-item">
+                <img src="https://wildernest.co.za/wp-content/uploads/2023/04/Ocean-Room-5.webp" alt="Luxury Bedroom">
+            </div>
+            <div class="gallery-item">
+                <img src="https://wildernest.co.za/wp-content/uploads/2023/04/Forest-Room-10.webp" alt="Luxury Bedroom">
+            </div>
+            <div class="gallery-item">
+                <img src="https://wildernest.co.za/wp-content/uploads/2023/04/Forest-Room-8.webp" alt="Luxury Bedroom">
+            </div>
+            <div class="gallery-item">
+                <img src="https://wildernest.co.za/wp-content/uploads/2023/04/Forest-Room-2.webp" alt="Luxury Bedroom">
+            </div>
+            <div class="gallery-item">
+                <img src="https://wildernest.co.za/wp-content/uploads/2023/04/Desert-Room-6.webp" alt="Luxury Bedroom">
+            </div>
+            <div class="gallery-item">
+                <img src="https://wildernest.co.za/wp-content/uploads/2023/04/Desert-Room-5.webp" alt="Luxury Bedroom">
+            </div>
+            <div class="gallery-item">
+                <img src="https://wildernest.co.za/wp-content/uploads/2023/04/Desert-Room-2.webp" alt="Luxury Bedroom">
+            </div>
+            <div class="gallery-item">
+                <img src="https://wildernest.co.za/wp-content/uploads/2023/04/Beach-Room-4.webp" alt="Luxury Bedroom">
+            </div>
+            <div class="gallery-item">
+                <img src="https://wildernest.co.za/wp-content/uploads/2023/04/Beach-Room-2.webp" alt="Luxury Bedroom">
+            </div>
+            <div class="gallery-item">
+                <img src="https://wildernest.co.za/wp-content/uploads/2023/04/Ocean-Room-Bathroom-1.webp" alt="Luxury Bathroom">
+            </div>
+            <div class="gallery-item">
+                <img src="https://wildernest.co.za/wp-content/uploads/2023/04/Forest-Room-Bathroom-7.webp" alt="Luxury Bathroom">
+            </div>
+            <div class="gallery-item">
+                <img src="https://wildernest.co.za/wp-content/uploads/2023/04/Beach-Room-Bathroom-2.webp" alt="Luxury Bathroom">
+            </div>
+            <div class="gallery-item">
+                <img src="https://wildernest.co.za/wp-content/uploads/2023/04/Living-Room-4.webp" alt="Living Area">
+            </div>
+            <div class="gallery-item">
+                <img src="https://wildernest.co.za/wp-content/uploads/2023/04/Fireplace-4.webp" alt="Dining">
+            </div>
+            <div class="gallery-item">
+                <img src="https://wildernest.co.za/wp-content/uploads/2023/04/Kitchen-1.webp" alt="Kitchen">
+            </div>
+            <div class="gallery-item">
+                <img src="https://wildernest.co.za/wp-content/uploads/2023/04/Downstairs-Patio-Braai-9.webp" alt="Outside">
+            </div>
+            <div class="gallery-item">
+                <img src="https://wildernest.co.za/wp-content/uploads/2023/04/Downstairs-Patio-Braai-6.webp" alt="Outside">
+            </div>
+            <div class="gallery-item">
+                <img src="https://wildernest.co.za/wp-content/uploads/2023/04/Downstairs-Patio-Braai-3.webp" alt="Outside">
+            </div>
+            <div class="gallery-item">
+                <img src="https://wildernest.co.za/wp-content/uploads/2023/04/Beach-Access-Walkway-3.webp" alt="Outside">
+            </div>
+        </div>
+    </section>
+    
+
+    <footer class="footer slide-in">
+        <button class="scroll-to-top" onclick="scrollToTop()"><i class="fas fa-arrow-up"></i></button>
+        <div class="footer-container">
+            <p>&copy; 2025 Namibsroos. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#">Privacy</a>
+                <a href="#">Terms</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </div>
+    </footer>
+    
+    
+    
+    <script>
+        const hamburger = document.querySelector('.hamburger');
+const navLinks = document.querySelector('.nav-links');
+
+hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    navLinks.classList.toggle('active');
+});
+
+document.querySelectorAll('.nav-links li a').forEach(link => {
+    link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navLinks.classList.remove('active');
+    });
+});
+
+function scrollToTop() {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+}
+
+window.onscroll = function() {
+    const button = document.querySelector('.scroll-to-top');
+    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+        button.style.display = "block";
+    } else {
+        button.style.display = "none";
+    }
+};
+
+
+    </script>
+</body>
+</html>
