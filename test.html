@@ -1,0 +1,1049 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Add these meta tags for better SEO and social sharing -->
+    <meta name="description" content="Your description here">
+    <meta name="keywords" content="namibsroos, your, keywords">
+    
+    <!-- Add a favicon -->
+    <link rel="favicon" href="favicon.ico">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About test Namibsroos</title>
+    <style>
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    background-color: rgba(0, 0, 0, 0.515);
+    backdrop-filter: blur(10px);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.logo h1 a {
+    text-decoration: none;
+    color: white;
+    transition: color 0.3s ease;
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.logo h1 a:hover {
+    color: #6699d0;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #6699d0;
+}
+
+.cta-button {
+    padding: 0.8rem 1.5rem;
+    background-color: #5aa8fb;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.cta-button:hover {
+    background-color: #6699d0;
+}
+
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+    cursor: pointer;
+}
+
+.hamburger span {
+    width: 30px;
+    height: 3px;
+    background-color: white;
+    transition: 0.3s;
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: rgba(255, 255, 255, 0.95);
+        flex-direction: column;
+        padding: 2rem;
+        text-align: center;
+    }
+    @media (max-width: 768px) {
+    .nav-links a {
+        color: #333;
+    }
+}
+
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .cta-button {
+        display: none;
+    }
+
+    .hamburger.active span:nth-child(1) {
+        transform: rotate(45deg) translate(8px, 8px);
+    }
+
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(8px, -8px);
+    }
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+}
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.163);
+    z-index: -1;
+}
+.hero-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    z-index: 1;
+}
+
+.hero-text h1 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    opacity: 0;
+    animation: slideIn 1s ease forwards;
+}
+
+.hero-text p {
+    font-size: 1.8rem;
+    opacity: 0;
+    animation: slideIn 1s ease forwards 0.5s;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-100px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+.mobile-cta {
+    display: none;
+    padding: 0.8rem 1.5rem;
+    background-color: #5aa8fb;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-decoration: none;
+    margin-top: 2rem;
+}
+
+.mobile-cta:hover {
+    background-color: #6699d0;
+}
+
+@media (max-width: 768px) {
+    .mobile-cta {
+        display: inline-block;
+    }
+}
+
+/* About Section */
+.about {
+    padding: 80px 5%;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+.about-2 {
+    padding: 80px 5%;
+    background-color: #f5f5f5;
+}
+
+
+.about-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+.about-2-content h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 3rem;
+}
+
+
+.about h2 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 2rem;
+}
+
+.about p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #666;
+}
+
+/* About Section */
+.columns-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.column {
+    text-align: left;
+}
+
+.column h2 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 1.5rem;
+}
+
+.feature-list {
+    list-style: none;
+    padding: 0;
+}
+
+.feature-list li {
+    color: #666;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.8rem;
+}
+
+.feature-list li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #333;
+}
+
+@media (max-width: 768px) {
+    .columns-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}
+
+
+/*accommodation section */
+.accommodation {
+    padding: 80px 5%;
+    background-color: white;
+    opacity: 0;
+    transform: translateX(100px);
+    transition: all 1s ease;
+}
+
+.accommodation.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.accommodation-content {
+    display: flex;
+    gap: 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.accommodation-text {
+    flex: 1;
+    padding-right: 2rem;
+}
+
+.accommodation-text h2 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 1.5rem;
+}
+
+.accommodation-text p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #666;
+    margin-bottom: 1.5rem;
+}
+
+.accommodation-text ul {
+    list-style-position: inside;
+    margin-bottom: 2rem;
+}
+
+.accommodation-text li {
+    margin-bottom: 0.5rem;
+    color: #666;
+}
+
+.slider-container {
+    flex: 1;
+    overflow: hidden;
+    position: relative;
+}
+
+.slider {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.slider img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+}
+
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 1rem;
+    cursor: pointer;
+    z-index: 10;
+    transition: background 0.3s;
+}
+
+.slider-btn:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.slider-btn.prev {
+    left: 0;
+}
+
+.slider-btn.next {
+    right: 0;
+}
+
+@media (max-width: 768px) {
+    .accommodation-content {
+        flex-direction: column;
+        gap: 2rem;
+    }
+    
+    .accommodation-text {
+        padding-right: 0;
+    }
+}
+
+/* experience section */
+.experience {
+    padding: 80px 5%;
+    background-color: #f9f9f9;
+    opacity: 0;
+    transform: translateX(-100px);
+    transition: all 1s ease;
+}
+
+.experience.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.experience-content {
+    display: flex;
+    gap: 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-direction: row-reverse;
+}
+
+.experience-text {
+    flex: 1;
+    padding-left: 2rem;
+}
+
+.experience-text h2 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 1.5rem;
+}
+
+.experience-text p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #666;
+    margin-bottom: 1.5rem;
+}
+
+.experience-text ul {
+    list-style-position: inside;
+    margin-bottom: 2rem;
+}
+
+.experience-text li {
+    margin-bottom: 0.5rem;
+    color: #666;
+}
+
+.experience-slider {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.experience-slider img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+}
+
+@media (max-width: 768px) {
+    .experience-content {
+        flex-direction: column;
+        gap: 2rem;
+    }
+    
+    .experience-text {
+        padding-left: 0;
+    }
+}
+
+
+/* Add smooth scroll behavior */
+html {
+    scroll-behavior: smooth;
+}
+
+/* cta section */
+.cta-section {
+    padding: 100px 5%;
+    background-image: url('https://images.pexels.com/photos/3155666/pexels-photo-3155666.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    text-align: center;
+    color: white;
+    position: relative;
+}
+
+.cta-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.cta-content {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.cta-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.cta-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+.cta-content .cta-button {
+    font-size: 1.2rem;
+    padding: 1rem 2rem;
+}
+
+/* Footer Styles */
+.footer {
+    background-color: #333;
+    padding: 2rem 5%;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 2rem;
+    color: white;
+    margin-bottom: 2rem; /* Space between content and copyright */
+}
+
+/* Logo on the left */
+.footer-logo h1 a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.8rem;
+    font-weight: 700;
+    transition: color 0.3s ease;
+}
+
+.footer-logo h1 a:hover {
+    color: #6699d0;
+}
+
+/* Navigation links on the right */
+.footer-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.footer-nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: color 0.3s;
+}
+
+.footer-nav a:hover {
+    color: #6699d0;
+}
+
+/* Copyright text at the bottom */
+.footer-bottom {
+    text-align: center;
+    color: white;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: 1rem;
+}
+
+/* Scroll to top button */
+.scroll-top {
+    background-color: #5aa8fb;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+}
+
+.scroll-top:hover {
+    background-color: #6699d0;
+}
+
+.scroll-top span {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <h1><a href="index.html">Namibsroos</a></h1>
+        </div>        
+        
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="rates.html">Rates</a>
+            <a href="contact.html">Contact</a>
+            <a href="test.html">Test</a>
+        </div>
+
+        <a href="contact.html" class="cta-button">Get Started</a>
+        
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <video class="hero-video" autoplay muted loop playsinline>
+            <source src="https://videos.pexels.com/video-files/2231485/2231485-uhd_2560_1440_24fps.mp4" type="video/mp4">
+        </video>
+        <div class="hero-text">
+            <h1 class="slide-in">Welcome to Namibsroos</h1>
+            <p class="slide-in">Experience the beauty of Namibia</p>
+            <a href="contact.html" class="mobile-cta">Get Started</a>
+        </div>
+    </section>
+    
+    <!-- About Section -->
+<section class="about">
+    <div class="about-content">
+        <h2>About Namibsroos</h2>
+        <p>Welcome to Namibsroos, your gateway to experiencing the breathtaking beauty of Namibia. We specialize in creating unforgettable journeys through the diverse landscapes of this magnificent country, from the ancient Namib Desert to the wildlife-rich Etosha National Park.</p>
+    </div>
+</section>
+
+<!-- Accommodation Section -->
+<section class="accommodation reveal">
+    <div class="accommodation-content">
+        <div class="accommodation-text">
+            <h2>The Royal Suite</h2>
+            <p>Experience ultimate comfort in our carefully designed spaces that blend modern luxury with Namibian charm. Each room offers stunning views and premium amenities to ensure a memorable stay.</p>
+            <ul>
+                <li>Ground floor</li>
+                <li>Sea view</li>
+                <li>Full en-suite bathroom</li>
+                <li>Walk-in closet</li>
+                <li>Flat screen TV</li>
+                <li>Large dressing table</li>
+            </ul>
+            <a href="gallery.html" class="cta-button">View Bedrooms</a>
+        </div>
+        <div class="slider-container">
+            <button class="slider-btn prev">❮</button>
+            <div class="slider">
+                <img src="https://wildernest.co.za/wp-content/uploads/2023/04/Ocean-Room-8.webp" alt="Luxury Room">
+                <img src="https://wildernest.co.za/wp-content/uploads/2023/04/Ocean-Room-5.webp" alt="Suite">
+                <img src="https://wildernest.co.za/wp-content/uploads/2023/04/Ocean-Room-10.webp" alt="Premium Room">
+            </div>
+            <button class="slider-btn next">❯</button>
+        </div>
+    </div>
+</section>
+
+<!-- Experience Section -->
+<section class="experience reveal-left">
+    <div class="experience-content">
+        <div class="slider-container">
+            <button class="slider-btn prev">❮</button>
+            <div class="experience-slider">
+                <img src="https://wildernest.co.za/wp-content/uploads/2023/04/Ocean-Room-8.webp" alt="Safari Experience">
+                <img src="https://wildernest.co.za/wp-content/uploads/2023/04/Ocean-Room-5.webp" alt="Desert Adventure">
+                <img src="https://wildernest.co.za/wp-content/uploads/2023/04/Ocean-Room-10.webp" alt="Cultural Tour">
+            </div>
+            <button class="slider-btn next">❯</button>
+        </div>
+        <div class="experience-text">
+            <h2>The Artist's Retreat</h2>
+            <p>Dive into extraordinary adventures across Namibia's diverse landscapes. From thrilling desert safaris to authentic cultural encounters, every moment becomes a cherished memory.</p>
+            <ul>
+                <li>First floor</li>
+                <li>Sea view</li>
+                <li>Super king-size bed</li>
+                <li>One couch</li>
+                <li>Flat screen TV</li>
+                <li>Dressing table</li>
+                <li>Full en-suite bathroom</li>
+                <li>Balcony with outdoor seating area and sea view</li>
+            </ul>
+            <a href="gallery.html" class="cta-button">View Bedrooms</a>
+        </div>
+    </div>
+</section>
+
+<!-- Accommodation Section -->
+<section class="accommodation reveal">
+    <div class="accommodation-content">
+        <div class="accommodation-text">
+            <h2>The Serenity Suite</h2>
+            <p>Experience ultimate comfort in our carefully designed spaces that blend modern luxury with Namibian charm. Each room offers stunning views and premium amenities to ensure a memorable stay.</p>
+            <ul>
+                <li>First floor</li>
+                <li>Sea view</li>
+                <li>One double bed</li>
+                <li>One single bed</li>
+                <li>One Papasan chair</li>
+                <li>Flat screen TV</li>
+                <li>Dressing table</li>
+                <li>Full en-suite bathroom</li>
+            </ul>
+            <a href="gallery.html" class="cta-button">View Bedrooms</a>
+        </div>
+        <div class="slider-container">
+            <button class="slider-btn prev">❮</button>
+            <div class="slider">
+                <img src="https://wildernest.co.za/wp-content/uploads/2023/04/Ocean-Room-8.webp" alt="Luxury Room">
+                <img src="https://wildernest.co.za/wp-content/uploads/2023/04/Ocean-Room-5.webp" alt="Suite">
+                <img src="https://wildernest.co.za/wp-content/uploads/2023/04/Ocean-Room-10.webp" alt="Premium Room">
+            </div>
+            <button class="slider-btn next">❯</button>
+        </div>
+    </div>
+</section>
+
+<!-- Experience Section -->
+<section class="experience reveal-left">
+    <div class="experience-content">
+        <div class="slider-container">
+            <button class="slider-btn prev">❮</button>
+            <div class="experience-slider">
+                <img src="https://wildernest.co.za/wp-content/uploads/2023/04/Ocean-Room-8.webp" alt="Safari Experience">
+                <img src="https://wildernest.co.za/wp-content/uploads/2023/04/Ocean-Room-5.webp" alt="Desert Adventure">
+                <img src="https://wildernest.co.za/wp-content/uploads/2023/04/Ocean-Room-10.webp" alt="Cultural Tour">
+            </div>
+            <button class="slider-btn next">❯</button>
+        </div>
+        <div class="experience-text">
+            <h2>The Captains Quarters</h2>
+            <p>Dive into extraordinary adventures across Namibia's diverse landscapes. From thrilling desert safaris to authentic cultural encounters, every moment becomes a cherished memory.</p>
+            <ul>
+                <li>First floor</li>
+                <li>Partial sea view</li>
+                <li>Two single beds</li>
+                <li>En-suite bathroom</li>
+                <li>Balcony with outdoor seating area and sea view</li>
+            </ul>
+            <a href="gallery.html" class="cta-button">View Bedrooms</a>
+        </div>
+    </div>
+</section>
+
+<!-- About Section -->
+<section class="about">
+    <div class="about-content">
+        <h2>Villa Common Areas</h2>
+    </div>
+</section>
+
+<!-- Accommodation Section -->
+<section class="accommodation reveal">
+    <div class="accommodation-content">
+        <div class="accommodation-text">
+            <h2>Large Lounge</h2>
+            <p>Experience ultimate comfort in our carefully designed spaces that blend modern luxury with Namibian charm. Each room offers stunning views and premium amenities to ensure a memorable stay.</p>
+            <ul>
+                <li>Ground floor</li>
+                <li>Sea view</li>
+                <li>Three sofas</li>
+                <li>Flat screen TV</li>
+                <li>Bathroom</li>
+                <li>Patio with outdoor seating area and direct beach access</li>
+            </ul>
+            <a href="gallery.html" class="cta-button">View Lounge</a>
+        </div>
+        <div class="slider-container">
+            <button class="slider-btn prev">❮</button>
+            <div class="slider">
+                <img src="https://wildernest.co.za/wp-content/uploads/2023/04/Ocean-Room-8.webp" alt="Luxury Room">
+                <img src="https://wildernest.co.za/wp-content/uploads/2023/04/Ocean-Room-5.webp" alt="Suite">
+                <img src="https://wildernest.co.za/wp-content/uploads/2023/04/Ocean-Room-10.webp" alt="Premium Room">
+            </div>
+            <button class="slider-btn next">❯</button>
+        </div>
+    </div>
+</section>
+
+<!-- Experience Section -->
+<section class="experience reveal-left">
+    <div class="experience-content">
+        <div class="slider-container">
+            <button class="slider-btn prev">❮</button>
+            <div class="experience-slider">
+                <img src="https://wildernest.co.za/wp-content/uploads/2023/04/Ocean-Room-8.webp" alt="Safari Experience">
+                <img src="https://wildernest.co.za/wp-content/uploads/2023/04/Ocean-Room-5.webp" alt="Desert Adventure">
+                <img src="https://wildernest.co.za/wp-content/uploads/2023/04/Ocean-Room-10.webp" alt="Cultural Tour">
+            </div>
+            <button class="slider-btn next">❯</button>
+        </div>
+        <div class="experience-text">
+            <h2>Large Kitchen and Scullery</h2>
+            <p>Dive into extraordinary adventures across Namibia's diverse landscapes. From thrilling desert safaris to authentic cultural encounters, every moment becomes a cherished memory.</p>
+            <ul>
+                <li>Ground floor</li>
+                <li>Kitchen utensils and cutlery</li>
+                <li>Breakfast island</li>
+                <li>Large fridge and freezer</li>
+                <li>Gas stove and oven</li>
+                <li>Microwave and kettle</li>
+                <li>Ice machine</li>
+                <li>Food preparation basin wth water purification system</li>
+                <li>Wash-up basin</li>
+            </ul>
+            <a href="gallery.html" class="cta-button">View Kitchen</a>
+        </div>
+    </div>
+</section>
+
+<!-- Accommodation Section -->
+<section class="accommodation reveal">
+    <div class="accommodation-content">
+        <div class="accommodation-text">
+            <h2>Large Dining Area</h2>
+            <p>Experience ultimate comfort in our carefully designed spaces that blend modern luxury with Namibian charm. Each room offers stunning views and premium amenities to ensure a memorable stay.</p>
+            <ul>
+                <li>Dining Table One: Capacity for 8 adults</li>
+                <li>Dining Table Two: Capacity for 8 adults</li>
+            </ul>
+            <a href="gallery.html" class="cta-button">View Dining Area</a>
+        </div>
+        <div class="slider-container">
+            <button class="slider-btn prev">❮</button>
+            <div class="slider">
+                <img src="https://wildernest.co.za/wp-content/uploads/2023/04/Ocean-Room-8.webp" alt="Luxury Room">
+                <img src="https://wildernest.co.za/wp-content/uploads/2023/04/Ocean-Room-5.webp" alt="Suite">
+                <img src="https://wildernest.co.za/wp-content/uploads/2023/04/Ocean-Room-10.webp" alt="Premium Room">
+            </div>
+            <button class="slider-btn next">❯</button>
+        </div>
+    </div>
+</section>
+
+<!-- Experience Section -->
+<section class="experience reveal-left">
+    <div class="experience-content">
+        <div class="slider-container">
+            <button class="slider-btn prev">❮</button>
+            <div class="experience-slider">
+                <img src="https://wildernest.co.za/wp-content/uploads/2023/04/Ocean-Room-8.webp" alt="Safari Experience">
+                <img src="https://wildernest.co.za/wp-content/uploads/2023/04/Ocean-Room-5.webp" alt="Desert Adventure">
+                <img src="https://wildernest.co.za/wp-content/uploads/2023/04/Ocean-Room-10.webp" alt="Cultural Tour">
+            </div>
+            <button class="slider-btn next">❯</button>
+        </div>
+        <div class="experience-text">
+            <h2>Outdoor Boma Area</h2>
+            <p>Dive into extraordinary adventures across Namibia's diverse landscapes. From thrilling desert safaris to authentic cultural encounters, every moment becomes a cherished memory.</p>
+            <ul>
+                <li>Ground floor</li>
+                <li>Seating area with direct beach access</li>
+                <li>Bonfire pit</li>
+                <li>Food preparation area</li>
+            </ul>
+            <a href="gallery.html" class="cta-button">View Boma Area</a>
+        </div>
+    </div>
+</section>
+
+<!-- About Section -->
+<section class="about-2">
+    <div class="about-2-content">
+        <h1>Villa Common Areas</h1>
+        <div class="columns-container">
+            <div class="column">
+                <h2>Security and Amenities</h2>
+                <ul class="feature-list">
+                    <li>24/7 Security and surveillance</li>
+                    <li>Private parking area</li>
+                    <li>High-speed WiFi throughout</li>
+                    <li>Direct beach access</li>
+                    <li>Outdoor shower facilities</li>
+                </ul>
+            </div>
+            
+            <div class="column">
+                <h2>Services and Facilities</h2>
+                <ul class="feature-list">
+                    <li>Laundry service available</li>
+                    <li>Swimming pool access</li>
+                    <li>Garden and patio area</li>
+                    <li>Backup power system</li>
+                    <li>Daily housekeeping service</li>
+                </ul>
+            </div>
+
+            <div class="column">
+                <h2>Entertainment</h2>
+                <ul class="feature-list">
+                    <li>Large flat-screen TV</li>
+                    <li>Board games collection</li>
+                    <li>Outdoor entertainment area</li>
+                    <li>Music system</li>
+                    <li>Book library</li>
+                </ul>
+            </div>
+            
+            <div class="column">
+                <h2>Beach Amenities</h2>
+                <ul class="feature-list">
+                    <li>Beach umbrellas</li>
+                    <li>Beach chairs</li>
+                    <li>Beach towels</li>
+                    <li>Cooler boxes</li>
+                    <li>Beach games equipment</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta-section">
+    <div class="cta-content">
+        <h2>Ready to Experience Namibsroos?</h2>
+        <p>Book your stay today and create unforgettable memories</p>
+        <a href="contact.html" class="cta-button">Book Now</a>
+    </div>
+</section>
+
+    <!-- footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <!-- Logo on the left -->
+            <div class="footer-logo">
+                <h1><a href="index.html">Namibsroos</a></h1>
+            </div>
+    
+            <!-- Navigation links on the right -->
+            <div class="footer-nav">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="rates.html">Rates</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </div>
+    
+        <!-- Copyright text at the bottom -->
+        <div class="footer-bottom">
+            <p>&copy; 2025 Namibsroos. All rights reserved.</p>
+        </div>
+    
+        <!-- Scroll to top button -->
+        <div class="scroll-top" id="scrollTop">
+            <span>↑</span>
+        </div>
+    </footer>
+
+<script>
+    const hamburger = document.querySelector('.hamburger');
+const navLinks = document.querySelector('.nav-links');
+
+hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    navLinks.classList.toggle('active');
+});
+
+// Close menu when clicking a link
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navLinks.classList.remove('active');
+    });
+});
+
+document.getElementById('scrollTop').addEventListener('click', () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+});
+
+// Reveal animation on scroll
+const observerOptions = {
+    threshold: 0.25
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+        }
+    });
+}, observerOptions);
+
+document.querySelectorAll('.reveal, .reveal-left').forEach(element => {
+    observer.observe(element);
+});
+
+// Manual slider functionality
+function setupSlider(sliderContainer) {
+    const slider = sliderContainer.querySelector('.slider, .experience-slider');
+    const prevBtn = sliderContainer.querySelector('.prev');
+    const nextBtn = sliderContainer.querySelector('.next');
+    const slides = slider.querySelectorAll('img');
+    let currentIndex = 0;
+
+    function updateSlide() {
+        slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+    }
+
+    prevBtn.addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+        updateSlide();
+    });
+
+    nextBtn.addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % slides.length;
+        updateSlide();
+    });
+}
+
+// Setup all sliders on the page
+document.querySelectorAll('.slider-container').forEach(setupSlider);
+
+</script>
+</body>
+
+</html>
