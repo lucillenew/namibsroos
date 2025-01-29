@@ -1,992 +1,658 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+    <!-- Add these meta tags for better SEO and social sharing -->
+    <meta name="description" content="Experience luxury beachfront living at Namibsroos Villa in Hentiesbaai, Namibia. Enjoy direct beach access, stunning ocean views, and modern amenities in our spacious villa on the Skeleton Coast.">
+    <meta name="keywords" content="Namibsroos villa, luxury beach house, Hentiesbaai accommodation, Skeleton Coast villa, Namibia beachfront rental, fishing accommodation Hentiesbaai, luxury vacation rental Namibia, beach villa Hentiesbaai, family holiday home Namibia">
+    
+    <!-- Add a favicon -->
+    <link rel="favicon" href="favicon.ico">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <title>Responsive Navbar with Hero Video</title>
+    <title>About Villa</title>
     <style>
         * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        nav {
-            position: fixed;
-            width: 100%;
-            background: rgba(0, 0, 0, 0.7);
-            padding: 20px;
-            z-index: 1000;
-        }
-
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .logo {
-            color: white;
-            font-size: 24px;
-            text-decoration: none;
-            flex: 1;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            justify-content: center;
-            flex: 2;
-        }
-
-        .nav-links li a {
-            color: white;
-            text-decoration: none;
-            padding: 10px 20px;
-            transition: 0.3s;
-        }
-
-        .nav-links li a:hover {
-            color: #6eaddd;
-        }
-
-        .cta-button {
-            background: #5dbfe6;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 5px;
-            text-decoration: none;
-            transition: 0.3s;
-            flex: 0 0 120px;
-            text-align: center;
-        }
-
-        .cta-button:hover {
-            background: #6eaddd;
-        }
-
-        .hamburger {
-            display: none;
-            cursor: pointer;
-            flex-direction: column;
-            justify-content: space-around;
-            width: 30px;
-            height: 50px;
-            background: transparent;
-            border: none;
-            z-index: 1001;
-        }
-
-        .hamburger div {
-            width: 100%;
-            height: 3px;
-            background: white;
-            border-radius: 5px;
-            transition: all 0.3s ease;
-        }
-
-        .hamburger.active div:nth-child(1) {
-            transform: rotate(45deg) translate(5px, 5px);
-        }
-
-        .hamburger.active div:nth-child(2) {
-            opacity: 0;
-        }
-
-        .hamburger.active div:nth-child(3) {
-            transform: rotate(-45deg) translate(5px, -5px);
-        }
-
-        .hamburger.active {
-            width: 35px;
-            height: 35px;
-        }
-
-        .hero {
-            position: relative;
-            height: 100vh;
-            overflow: hidden;
-        }
-
-        .hero::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 1;
-        }
-
-        .hero video {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            min-width: 100%;
-            min-height: 100%;
-            transform: translate(-50%, -50%);
-            object-fit: cover;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            text-align: center;
-            padding: 0 20px;
-        }
-
-        .hero-content h1 {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            animation: slideInFromLeft 1s ease-out;
-        }
-
-        .hero-content p {
-            font-size: 1.5rem;
-            letter-spacing: 1px;
-            animation: slideInFromLeft 1s ease-out;
-        }
-
-        .hero-button {
-            display: none;
-            background: #5dbfe6;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 5px;
-            text-decoration: none;
-            transition: 0.3s;
-            margin-top: 20px;
-        }
-
-        .hero-button:hover {
-            background: #6eaddd;
-        }
-
-        @media screen and (max-width: 768px) {
-            .hero-button {
-                display: inline-block;
-            }
-        }
-
-        @keyframes slideInFromLeft {
-            0% {
-                transform: translateX(-100%);
-                opacity: 0;
-            }
-
-            100% {
-                transform: translateX(0);
-                opacity: 1;
-            }
-        }
-
-        @keyframes fadeIn {
-            0% {
-                opacity: 0;
-            }
-
-            100% {
-                opacity: 1;
-            }
-        }
-
-        @keyframes slideInFromRight {
-            0% {
-                transform: translateX(100%);
-                opacity: 0;
-            }
-
-            100% {
-                transform: translateX(0);
-                opacity: 1;
-            }
-        }
-
-        @media screen and (max-width: 768px) {
-            .nav-links {
-                display: none;
-                width: 100%;
-                position: absolute;
-                top: 70px;
-                left: 0;
-                background: rgba(0, 0, 0, 0.9);
-                flex-direction: column;
-                align-items: center;
-                padding: 20px 0;
-                transition: all 0.3s ease;
-            }
-
-            .nav-links.active {
-                display: flex;
-            }
-
-            .hamburger {
-                display: flex;
-            }
-
-            .cta-button {
-                display: none;
-            }
-        }
-
-        .about-villa {
-            padding: 50px 0;
-            background: #f9f9f9;
-            margin: 0 20px; /* Add margin to left and right */
-        }
-
-        .about-villa-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .about-villa-container h2 {
-            font-size: 2rem;
-            margin-bottom: 20px;
-            color: #333;
-        }
-
-        .bedroom-1 {
-    padding: 50px 20px;
-    background: #ffffff;
-    margin: 0 20px;  /* This adds 20px margin to left and right */
-    animation: slideInFromLeft 1s ease-out;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.bedroom-1-container {
-    max-width: 1200px;
-    margin: 0 auto;
+.navbar {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    gap: 40px;
-}
-
-.bedroom-1-text {
-    flex: 1;
-    text-align: left;
-}
-
-.bedroom-1-text h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-    color: #333;
-}
-
-.bedroom-1-text p {
-    line-height: 1.6;
-    color: #666;
-}
-
-.bedroom-1-text ul {
-    line-height: 1.6;
-    color: #666;
-}
-
-.bedroom-1-image {
-    flex: 1;
-}
-
-.bedroom-1-image img {
+    padding: 1rem 5%;
+    background-color: rgba(0, 0, 0, 0.515);
+    backdrop-filter: blur(10px);
+    position: fixed;
     width: 100%;
-    height: auto;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    top: 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
 }
 
-@media screen and (max-width: 768px) {
-    .bedroom-1-container {
-        flex-direction: column;
-    }
+.logo h1 a {
+    text-decoration: none;
+    color: white;
+    transition: color 0.3s ease;
+    font-size: 1.8rem;
+    font-weight: 700;
 }
-@keyframes slideInFromLeft {
-    0% {
-        transform: translateX(-100%);
+
+.logo h1 a:hover {
+    color: #6699d0;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #6699d0;
+}
+
+.cta-button {
+    padding: 0.8rem 1.5rem;
+    background-color: #5aa8fb;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.cta-button:hover {
+    background-color: #6699d0;
+}
+
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+    cursor: pointer;
+}
+
+.hamburger span {
+    width: 30px;
+    height: 3px;
+    background-color: white;
+    transition: 0.3s;
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: rgba(255, 255, 255, 0.95);
+        flex-direction: column;
+        padding: 2rem;
+        text-align: center;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .cta-button {
+        display: none;
+    }
+
+    .hamburger.active span:nth-child(1) {
+        transform: rotate(45deg) translate(8px, 8px);
+    }
+
+    .hamburger.active span:nth-child(2) {
         opacity: 0;
     }
-    100% {
+
+    .hamburger.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(8px, -8px);
+    }
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+}
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.163);
+    z-index: -1;
+}
+.hero-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    z-index: 1;
+}
+
+.hero-text h1 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    opacity: 0;
+    animation: slideIn 1s ease forwards;
+}
+
+.hero-text p {
+    font-size: 1.8rem;
+    opacity: 0;
+    animation: slideIn 1s ease forwards 0.5s;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-100px);
+        opacity: 0;
+    }
+    to {
         transform: translateX(0);
         opacity: 1;
     }
 }
-.slide-in-left {
-    opacity: 0;
-    transform: translateX(-100%);
-    transition: all 1s ease-out;
+.mobile-cta {
+    display: none;
+    padding: 0.8rem 1.5rem;
+    background-color: #5aa8fb;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-decoration: none;
+    margin-top: 2rem;
 }
 
-.slide-in-left.visible {
-    opacity: 1;
-    transform: translateX(0);
+.mobile-cta:hover {
+    background-color: #6699d0;
 }
 
-
-.bedroom-2 {
-    padding: 50px 20px;
-    background: #f9f9f9;
-    margin: 0 20px;
-}
-
-.bedroom-2-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    gap: 40px;
-}
-
-.bedroom-2-text {
-    flex: 1;
-    text-align: left;
-}
-
-.bedroom-2-text h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-    color: #333;
-}
-
-.bedroom-2-text p {
-    line-height: 1.6;
-    color: #666;
-}
-
-.bedroom-2-text ul {
-    line-height: 1.6;
-    color: #666;
-}
-
-.bedroom-2-image {
-    flex: 1;
-}
-
-.bedroom-2-image img {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
-
-@media screen and (max-width: 768px) {
-    .bedroom-2-container {
-        flex-direction: column;
+@media (max-width: 768px) {
+    .mobile-cta {
+        display: inline-block;
     }
 }
-.slide-in-right {
-    opacity: 0;
-    transform: translateX(100%);
-    transition: all 1s ease-out;
-}
 
-.slide-in-right.visible {
-    opacity: 1;
-    transform: translateX(0);
-}
-
-
-.bedroom-3 {
-    padding: 50px 20px;
-    background: #ffffff;
-    margin: 0 20px;  /* This adds 20px margin to left and right */
-}
-
-.bedroom-3-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    gap: 40px;
-}
-
-.bedroom-3-text {
-    flex: 1;
-    text-align: left;
-}
-
-.bedroom-3-text h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
+/* About Section */
+.section-title {
+    font-size: 2.5rem;
     color: #333;
-}
-
-.bedroom-3-text p {
-    line-height: 1.6;
-    color: #666;
-}
-
-.bedroom-3-text ul {
-    line-height: 1.6;
-    color: #666;
-}
-
-.bedroom-3-image {
-    flex: 1;
-}
-
-.bedroom-3-image img {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
-
-@media screen and (max-width: 768px) {
-    .bedroom-3-container {
-        flex-direction: column;
-    }
-}
-.slide-in-left {
-    opacity: 0;
-    transform: translateX(-100%);
-    transition: all 1s ease-out;
-}
-
-.slide-in-left.visible {
-    opacity: 1;
-    transform: translateX(0);
-}
-
-
-.bedroom-4 {
-    padding: 50px 20px;
-    background: #f9f9f9;
-    margin: 0 20px;
-}
-
-.bedroom-4-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    gap: 40px;
-}
-
-.bedroom-4-text {
-    flex: 1;
-    text-align: left;
-}
-
-.bedroom-4-text h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-    color: #333;
-}
-
-.bedroom-4-text p {
-    line-height: 1.6;
-    color: #666;
-}
-
-.bedroom-4-text ul {
-    line-height: 1.6;
-    color: #666;
-}
-
-.bedroom-4-image {
-    flex: 1;
-}
-
-.bedroom-4-image img {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
-
-@media screen and (max-width: 768px) {
-    .bedroom-4-container {
-        flex-direction: column;
-    }
-}
-.slide-in-right {
-    opacity: 0;
-    transform: translateX(100%);
-    transition: all 1s ease-out;
-}
-
-.slide-in-right.visible {
-    opacity: 1;
-    transform: translateX(0);
-}
-
-
-.common-areas {
-    padding: 50px 0;
-    background: #ffffff;
-    margin: 0 20px;
-}
-
-.common-areas-container {
-    max-width: 1200px;
-    margin: 0 auto;
     text-align: center;
+    padding: 2rem 0;
+    background-color: #f9f9f9;
+    padding-top: 5rem;
 }
 
-.common-areas-container h2 {
+.section-title h2 {
+    font-size: 2.5rem;
+    color: #333;
+}
+.about-columns {
+    padding: 5rem 10%;
+    display: flex;
+    gap: 4rem;
+    background-color: #f9f9f9;
+}
+
+.column {
+    flex: 1;
+}
+
+.column h2 {
     font-size: 2rem;
-    margin-bottom: 20px;
+    margin-bottom: 1.5rem;
     color: #333;
 }
 
-.kitchen-and-dining {
-    padding: 50px 20px;
-    background: #ffffff;
-    margin: 0 20px;  /* This adds 20px margin to left and right */
+.column p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #555;
 }
 
-.kitchen-and-dining-container {
-    max-width: 1200px;
-    margin: 0 auto;
+.about-list {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #333;
+}
+.image-column {
     display: flex;
     align-items: center;
-    gap: 40px;
+    justify-content: center;
 }
 
-.kitchen-and-dining-text {
-    flex: 1;
-    text-align: left;
-}
-
-.kitchen-and-dining-text h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
-    color: #333;
-}
-
-.kitchen-and-dining-text p {
-    line-height: 1.6;
-    color: #666;
-}
-
-.kitchen-and-dining-text ul {
-    line-height: 1.6;
-    color: #666;
-}
-
-.kitchen-and-dining-image {
-    flex: 1;
-}
-
-.kitchen-and-dining-image img {
+.image-column img {
     width: 100%;
-    height: auto;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    height: 400px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
-@media screen and (max-width: 768px) {
-    .kitchen-and-dining-container {
+
+@media (max-width: 768px) {
+    .about-columns {
         flex-direction: column;
+        gap: 2rem;
     }
 }
 
-.kitchen-and-dining.slide-in-left {
-    opacity: 0;
-    transform: translateX(-100%);
-    transition: all 1s ease-out;
+/*location section*/
+.location-section {
+    text-align: center;
+    padding: 5rem 10%;
 }
 
-.kitchen-and-dining.slide-in-left.visible {
-    opacity: 1;
-    transform: translateX(0);
-}
-
-.lounge-and-braai {
-    padding: 50px 20px;
-    background: #f9f9f9;
-    margin: 0 20px;
-}
-
-.lounge-and-braai-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    gap: 40px;
-}
-
-.lounge-and-braai-text {
-    flex: 1;
-    text-align: left;
-}
-
-.lounge-and-braai-text h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
+.location-section h2 {
+    font-size: 2.5rem;
     color: #333;
+    margin-bottom: 1.5rem;
 }
 
-.lounge-and-braai-text p {
+.location-section p {
+    font-size: 1.2rem;
     line-height: 1.6;
-    color: #666;
+    color: #555;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
-.lounge-and-braai-text ul {
-    line-height: 1.6;
-    color: #666;
+/* activities grid */
+.activities-grid {
+    padding: 2rem 10%;
 }
 
-.lounge-and-braai-image {
+.grid-row {
+    display: flex;
+    gap: 3rem;
+    margin-bottom: 3rem;
+}
+
+.grid-item {
     flex: 1;
 }
 
-.lounge-and-braai-image img {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+.grid-item h3 {
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 1.5rem;
+}
+a h3 {
+    color: #333;
+    transition: color 0.3s;
 }
 
-@media screen and (max-width: 768px) {
-    .lounge-and-braai-container {
+a:hover h3 {
+    color: #5aa8fb;
+}
+
+
+.content-wrapper {
+    display: flex;
+    gap: 2rem;
+}
+
+.content-wrapper img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.text-content {
+    flex: 1;
+}
+
+.text-content p {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+    color: #555;
+}
+
+.text-content ul {
+    list-style: none;
+}
+
+.text-content ul li {
+    margin-bottom: 0.5rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.text-content ul li:before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #5aa8fb;
+}
+
+@media (max-width: 1024px) {
+    .grid-row {
         flex-direction: column;
+    }
+    
+    .content-wrapper {
+        flex-direction: column;
+    }
+    
+    .content-wrapper img {
+        width: 100%;
+        height: 300px;
     }
 }
 
-.lounge-and-braai.slide-in-right {
-    opacity: 0;
-    transform: translateX(100%);
-    transition: all 1s ease-out;
+/* Add smooth scroll behavior */
+html {
+    scroll-behavior: smooth;
 }
 
-.lounge-and-braai.slide-in-right.visible {
-    opacity: 1;
-    transform: translateX(0);
+/* footer */
+/* Footer Styles */
+.footer {
+    background-color: #333;
+    padding: 2rem 5%;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
 }
 
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 2rem;
+    color: white;
+    margin-bottom: 2rem; /* Space between content and copyright */
+}
 
-        .footer {
-            background: #333;
-            color: white;
-            padding: 20px 0;
-            text-align: center;
-        }
+/* Logo on the left */
+.footer-logo h1 a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.8rem;
+    font-weight: 700;
+    transition: color 0.3s ease;
+}
 
-        .footer-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
+.footer-logo h1 a:hover {
+    color: #6699d0;
+}
 
-        .footer-links {
-            margin-top: 10px;
-        }
+/* Navigation links on the right */
+.footer-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
 
-        .footer-links a {
-            color: #fff;
-            text-decoration: none;
-            margin: 0 15px;
-            transition: color 0.3s;
-        }
+.footer-nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: color 0.3s;
+}
 
-        .footer-links a:hover {
-            color: #6eaddd;
-        }
+.footer-nav a:hover {
+    color: #6699d0;
+}
 
-        .scroll-to-top {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: #5dbfe6;
-            color: white;
-            border: none;
-            border-radius: 50px;
-            padding: 10px;
-            font-size: 24px;
-            cursor: pointer;
-            display: none;
-            transition: background-color 0.3s, transform 0.3s;
-        }
+/* Copyright text at the bottom */
+.footer-bottom {
+    text-align: center;
+    color: white;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: 1rem;
+}
 
-        .scroll-to-top:hover {
-            background-color: #6eaddd;
-            transform: translateY(-3px);
-        }
+/* Scroll to top button */
+.scroll-top {
+    background-color: #5aa8fb;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+}
+
+.scroll-top:hover {
+    background-color: #6699d0;
+}
+
+.scroll-top span {
+    font-size: 20px;
+    font-weight: bold;
+}
+
     </style>
 </head>
-
 <body>
-    <nav>
-        <div class="nav-container">
-            <a href="index.html" class="logo">NAMIBSROOS</a>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="gallery.html">Gallery</a></li>
-                <li><a href="rates.html">Rates</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-            <a href="https://www.booking.com/Share-FCaDwyw" class="cta-button">Book Now</a>
-            <div class="hamburger">
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
+    <nav class="navbar">
+        <div class="logo">
+            <h1><a href="index.html">Namibsroos</a></h1>
+        </div>        
+        
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="rates.html">Rates</a>
+            <a href="contact.html">Contact</a>
+            <a href="test.html">Test</a>
+        </div>
+
+        <a href="contact.html" class="cta-button">Book Now</a>
+        
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
         </div>
     </nav>
 
-    <div class="hero">
-        <video autoplay muted loop>
-            <source src="https://videos.pexels.com/video-files/2231485/2231485-uhd_2560_1440_24fps.mp4"
-                type="video/mp4">
-            Your browser does not support the video tag.
+    <!-- Hero Section -->
+    <section class="hero">
+        <video class="hero-video" autoplay muted loop playsinline>
+            <source src="https://videos.pexels.com/video-files/2231485/2231485-uhd_2560_1440_24fps.mp4" type="video/mp4">
         </video>
-        <div class="hero-content">
-            <h1>Luxury Beachfront Villa</h1>
-            <p>Experience the epitome of luxury and relaxation</p>
-            <a href="https://www.booking.com/Share-FCaDwyw" class="hero-button">Book Now</a>
-        </div>
-    </div>
-
-    <section class="about-villa">
-        <div class="about-villa-container">
-            <h2>About The Villa</h2>
-            <p>Welcome to our luxurious beachfront villa, where every detail is meticulously designed to create an
-                unforgettable experience. Our villa is located in the heart of the Namib Desert, offering breathtaking
-                views of the Atlantic Ocean. Whether you're looking for a romantic getaway or a family vacation, our
-                villa is the perfect destination for your next holiday.</p>
+        <div class="hero-text">
+            <h1 class="slide-in">Welcome to Namibsroos</h1>
+            <p class="slide-in">Experience the beauty of Namibia</p>
+            <a href="contact.html" class="mobile-cta">Book Now</a>
         </div>
     </section>
 
-    <section class="bedroom-1 slide-in-left">
-        <div class="bedroom-1-container">
-            <div class="bedroom-1-text">
-                <h2>The Royal Suite</h2>
-                <p>Experience ultimate comfort in our spacious master bedroom. Features include a luxurious king-size bed, premium linens, and a private balcony overlooking the ocean. The room is equipped with climate control, a smart TV, and ambient lighting to create the perfect atmosphere for relaxation.</p>
-                <br>
-                <ul>
-                    <li>King-size bed</li>
-                    <li>Premium linens</li>
-                    <li>Private balcony</li>
-                    <li>Climate control</li>
-                    <li>Smart TV</li>
-                    <li>Ambient lighting</li>
-                </ul>
-            </div>
-            <div class="bedroom-1-image">
-                <img src="https://images.pexels.com/photos/2631746/pexels-photo-2631746.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Luxury Master Bedroom">
-            </div>
+    <!-- About Section -->
+    <div class="section-title">
+        <h2>About Namibsroos Villa</h2>
+    </div>    
+    <section class="about-columns">
+        <div class="column">
+            <h2>Villa Description</h2>
+            <p>Situated in the charming coastal town of Hentiesbaai, Namibsroos Villa offers front-row seats to the mesmerizing Atlantic Ocean. The villa's prime location on the Skeleton Coast provides easy access to the region's famous fishing spots, desert adventures, and scenic drives. Just minutes away from local amenities, restaurants, and attractions.</p>
+            <p>Namibsroos is a luxury villa located on the serene Skeleton Coast, offering 4 spacious bedrooms, a modern kitchen, and a private deck with panoramic ocean views.</p>
+            <br/>
+            <ul class="about-list">
+                <li>Four bedrooms with en-suite bathrooms</li>
+                <li>Fully equipped modern kitchen</li>
+                <li>Dining area with dining table and chairs</li>
+                <li>Large living area with bathroom, patio and indoor BBQ/braai area</li>
+                <li>Bon fireplace outside with seating</li>
+            </ul>
+        </div>
+        <div class="column image-column">
+            <img src="https://images.pexels.com/photos/635279/pexels-photo-635279.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Namibsroos Villa Exterior View">
         </div>
     </section>
     
-    <section class="bedroom-2 slide-in-right">
-        <div class="bedroom-2-container">
-            <div class="bedroom-2-image">
-                <img src="https://images.pexels.com/photos/1743229/pexels-photo-1743229.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Second Bedroom">
-            </div>
-            <div class="bedroom-2-text">
-                <h2>Guest Bedroom</h2>
-                <p>Our elegant guest bedroom offers a perfect blend of comfort and style. Featuring twin beds that can be converted to a king, high-quality bedding, and modern amenities. The room includes an en-suite bathroom, built-in wardrobes, and stunning garden views.</p>
-                <br>
-                <ul>
-                    <li>Twin beds (convertible to king)</li>
-                    <li>High-quality bedding</li>
-                    <li>En-suite bathroom</li>
-                    <li>Built-in wardrobes</li>
-                    <li>Garden views</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <section class="bedroom-3 slide-in-left">
-        <div class="bedroom-3-container">
-            <div class="bedroom-3-text">
-                <h2>Master Bedroom</h2>
-                <p>Experience ultimate comfort in our spacious master bedroom. Features include a luxurious king-size bed, premium linens, and a private balcony overlooking the ocean. The room is equipped with climate control, a smart TV, and ambient lighting to create the perfect atmosphere for relaxation.</p>
-                <br>
-                <ul>
-                    <li>King-size bed</li>
-                    <li>Premium linens</li>
-                    <li>Private balcony</li>
-                    <li>Climate control</li>
-                    <li>Smart TV</li>
-                    <li>Ambient lighting</li>
-                </ul>
-            </div>
-            <div class="bedroom-3-image">
-                <img src="https://images.pexels.com/photos/2631746/pexels-photo-2631746.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Luxury Master Bedroom">
-            </div>
-        </div>
+    <!--location section-->
+    <section class="location-section">
+        <h2>Location & Activities</h2>
+        <p>Hentiesbaai is a small coastal town in Namibia, known for its scenic beauty, rich history, and outdoor recreational activities. Here are some things to do in Hentiesbaai:        </p>
     </section>
     
-    <section class="bedroom-4 slide-in-right">
-        <div class="bedroom-4-container">
-            <div class="bedroom-4-image">
-                <img src="https://images.pexels.com/photos/1743229/pexels-photo-1743229.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Second Bedroom">
+    <!--activities grid-->
+    <section class="activities-grid">
+        <div class="grid-row">
+            <div class="grid-item">
+                <a href="https://www.tripadvisor.co.za/Attraction_Review-g1887482-d11547469-Reviews-Zeila_Shipwreck-Henties_Bay_Erongo_Region.html"><h3>Fishing</h3></a>
+                <div class="content-wrapper">
+                    <img src="https://images.pexels.com/photos/6565102/pexels-photo-6565102.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Fishing at Skeleton Coast">
+                    <div class="text-content">
+                        <p>Experience world-class fishing along the Skeleton Coast, known for its abundant marine life and excellent angling opportunities.</p>
+                        <ul>
+                            <li>Deep sea fishing</li>
+                            <li>Shore angling</li>
+                            <li>Local fishing guides</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-            <div class="bedroom-4-text">
-                <h2>Guest Bedroom</h2>
-                <p>Our elegant guest bedroom offers a perfect blend of comfort and style. Featuring twin beds that can be converted to a king, high-quality bedding, and modern amenities. The room includes an en-suite bathroom, built-in wardrobes, and stunning garden views.</p>
-                <br>
-                <ul>
-                    <li>Twin beds (convertible to king)</li>
-                    <li>High-quality bedding</li>
-                    <li>En-suite bathroom</li>
-                    <li>Built-in wardrobes</li>
-                    <li>Garden views</li>
-                </ul>
+            <div class="grid-item">
+                <a href="https://www.tripadvisor.co.za/Attraction_Review-g1887482-d11547469-Reviews-Zeila_Shipwreck-Henties_Bay_Erongo_Region.html"><h3>Skeleton Coast National Park</h3></a>
+                <div class="content-wrapper">
+                    <img src="https://encrypted-tbn3.gstatic.com/licensed-image?q=tbn:ANd9GcRhMS9J704BU8QSwUrVGDkfYJZwFP9DuRmPLInSf60JfD8aXB7GXp4wKxwEokty0UJ1wIHhQSq8zruPf-ssmF9kN1mD6GT3ToXQ0FdMUg" alt="Skeleton Coast National Park">
+                    <div class="text-content">
+                        <p>Explore the mesmerizing Skeleton Coast National Park, home to unique wildlife and breathtaking landscapes.</p>
+                        <ul>
+                            <li>Dramatic landscapes</li>
+                            <li>Unique wildlife</li>
+                            <li>Historic shipwrecks</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
-    </section>
-
-    <section class="common-areas">
-    <div class="common-areas-container">
-        <h2>Common Areas</h2>
-        <p>Discover our thoughtfully designed shared spaces perfect for relaxation and entertainment. The villa features an elegant living room, fully equipped gourmet kitchen, and a spacious dining area that opens to a stunning outdoor terrace. Our infinity pool and landscaped garden provide the perfect setting for both peaceful moments and social gatherings.</p>
-    </div>
-</section>
-
-<section class="kitchen-and-dining slide-in-left">
-    <div class="kitchen-and-dining-container">
-        <div class="kitchen-and-dining-image">
-            <img src="https://images.pexels.com/photos/2724749/pexels-photo-2724749.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Second Bedroom">
+        <div class="grid-row">
+            <div class="grid-item">
+                <a href="https://www.tripadvisor.co.za/Attraction_Review-g1887482-d11547469-Reviews-Zeila_Shipwreck-Henties_Bay_Erongo_Region.html"><h3>Hentiesbaai Museum</h3></a>
+                <div class="content-wrapper">
+                    <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0f/95/1a/5d/photo2jpg.jpg?w=900&h=500&s=1" alt="Hentiesbaai Museum">
+                    <div class="text-content">
+                        <p>Immerse yourself in the history and culture of Hentiesbaai, a UNESCO World Heritage Site, which features exhibits of the areas fishing industry, shipwrecks and more.</p>
+                        <ul>
+                            <li>Exhibits of the fishing industry</li>
+                            <li>Shipwreck tours</li>
+                            <li>Areas history and culture</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="grid-item">
+                <a href="https://www.tripadvisor.co.za/Attraction_Review-g1887482-d11547469-Reviews-Zeila_Shipwreck-Henties_Bay_Erongo_Region.html"><h3>Stargazing</h3></a>
+                <div class="content-wrapper">
+                    <img src="https://images.pexels.com/photos/2034892/pexels-photo-2034892.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Stargazing">
+                    <div class="text-content">
+                        <p>Due to the town's remote location, Hentiesbaai offers incredible stargazing opportunities on clear nights.</p>
+                        <ul>
+                            <li>Clear skies</li>
+                            <li>Stargazing</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="kitchen-and-dining-text">
-            <h2>Kitchen and Dining</h2>
-            <p>Our elegant guest bedroom offers a perfect blend of comfort and style. Featuring twin beds that can be converted to a king, high-quality bedding, and modern amenities. The room includes an en-suite bathroom, built-in wardrobes, and stunning garden views.</p>
-            <br>
-            <ul>
-                <li>Twin beds (convertible to king)</li>
-                <li>High-quality bedding</li>
-                <li>En-suite bathroom</li>
-                <li>Built-in wardrobes</li>
-                <li>Garden views</li>
-            </ul>
-        </div>
-    </div>
-</section>
-
-<section class="lounge-and-braai slide-in-right">
-    <div class="lounge-and-braai-container">
-        <div class="lounge-and-braai-text">
-            <h2>Lounge and Indoor Braai</h2>
-            <p>Experience ultimate comfort in our spacious master bedroom. Features include a luxurious king-size bed, premium linens, and a private balcony overlooking the ocean. The room is equipped with climate control, a smart TV, and ambient lighting to create the perfect atmosphere for relaxation.</p>
-            <br>
-            <ul>
-                <li>King-size bed</li>
-                <li>Premium linens</li>
-                <li>Private balcony</li>
-                <li>Climate control</li>
-                <li>Smart TV</li>
-                <li>Ambient lighting</li>
-            </ul>
-        </div>
-        <div class="lounge-and-braai-image">
-            <img src="https://images.pexels.com/photos/1457842/pexels-photo-1457842.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Luxury Master Bedroom">
-        </div>
-    </div>
-</section>
+    </section>    
 
 
-    <footer class="footer slide-in">
-        <button class="scroll-to-top" onclick="scrollToTop()"><i class="fas fa-arrow-up"></i></button>
-        <div class="footer-container">
-            <p>&copy; 2025 Namibsroos. All rights reserved.</p>
-            <div class="footer-links">
-                <a href="#">Privacy</a>
-                <a href="#">Terms</a>
+    <!-- footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <!-- Logo on the left -->
+            <div class="footer-logo">
+                <h1><a href="index.html">Namibsroos</a></h1>
+            </div>
+    
+            <!-- Navigation links on the right -->
+            <div class="footer-nav">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="rates.html">Rates</a>
                 <a href="contact.html">Contact</a>
             </div>
+        </div>
+    
+        <!-- Copyright text at the bottom -->
+        <div class="footer-bottom">
+            <p>&copy; 2025 Namibsroos. All rights reserved.</p>
+        </div>
+    
+        <!-- Scroll to top button -->
+        <div class="scroll-top" id="scrollTop">
+            <span>↑</span>
         </div>
     </footer>
 
     <script>
         const hamburger = document.querySelector('.hamburger');
-        const navLinks = document.querySelector('.nav-links');
-
-        hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('active');
-            navLinks.classList.toggle('active');
-        });
-
-        document.querySelectorAll('.nav-links li a').forEach(link => {
-            link.addEventListener('click', () => {
-                hamburger.classList.remove('active');
-                navLinks.classList.remove('active');
-            });
-        });
-
-        function scrollToTop() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        }
-
-        window.onscroll = function () {
-            const button = document.querySelector('.scroll-to-top');
-            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-                button.style.display = "block";
-            } else {
-                button.style.display = "none";
-            }
-        };
-
-        document.addEventListener('DOMContentLoaded', function () {
-            const elements = document.querySelectorAll('.slide-in');
-
-            const observer = new IntersectionObserver(entries => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                        observer.unobserve(entry.target);
-                    }
-                });
-            });
-
-            elements.forEach(element => {
-                observer.observe(element);
-            });
-        });
-
-        document.addEventListener('DOMContentLoaded', function () {
-    const slideElements = document.querySelectorAll('.slide-in-left');
-
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                observer.unobserve(entry.target);
-            }
+    const navLinks = document.querySelector('.nav-links');
+    
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        navLinks.classList.toggle('active');
+    });
+    
+    // Close menu when clicking a link
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            navLinks.classList.remove('active');
         });
     });
-
-    slideElements.forEach(element => {
-        observer.observe(element);
-    });
-});
-document.addEventListener('DOMContentLoaded', function () {
-    const slideElements = document.querySelectorAll('.slide-in-left, .slide-in-right');
-
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                observer.unobserve(entry.target);
-            }
+    
+    document.getElementById('scrollTop').addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
         });
     });
-
-    slideElements.forEach(element => {
-        observer.observe(element);
-    });
-});
-
-
+    
+    
     </script>
 </body>
 
