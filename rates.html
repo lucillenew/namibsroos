@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Add these meta tags for better SEO and social sharing -->
+    <meta name="description" content="Your description here">
+    <meta name="keywords" content="namibsroos, your, keywords">
+    
+    <!-- Add a favicon -->
+    <link rel="favicon" href="favicon.ico">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Villa Rates and Terms</title>
+    <style>
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    background-color: rgba(0, 0, 0, 0.515);
+    backdrop-filter: blur(10px);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.logo h1 a {
+    text-decoration: none;
+    color: white;
+    transition: color 0.3s ease;
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.logo h1 a:hover {
+    color: #6699d0;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #6699d0;
+}
+
+.cta-button {
+    padding: 0.8rem 1.5rem;
+    background-color: #5aa8fb;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.cta-button:hover {
+    background-color: #6699d0;
+}
+
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+    cursor: pointer;
+}
+
+.hamburger span {
+    width: 30px;
+    height: 3px;
+    background-color: white;
+    transition: 0.3s;
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: rgba(255, 255, 255, 0.95);
+        flex-direction: column;
+        padding: 2rem;
+        text-align: center;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .cta-button {
+        display: none;
+    }
+
+    .hamburger.active span:nth-child(1) {
+        transform: rotate(45deg) translate(8px, 8px);
+    }
+
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(8px, -8px);
+    }
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+}
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.163);
+    z-index: -1;
+}
+.hero-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    z-index: 1;
+}
+
+.hero-text h1 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    opacity: 0;
+    animation: slideIn 1s ease forwards;
+}
+
+.hero-text p {
+    font-size: 1.8rem;
+    opacity: 0;
+    animation: slideIn 1s ease forwards 0.5s;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-100px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+.mobile-cta {
+    display: none;
+    padding: 0.8rem 1.5rem;
+    background-color: #5aa8fb;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-decoration: none;
+    margin-top: 2rem;
+}
+
+.mobile-cta:hover {
+    background-color: #6699d0;
+}
+
+@media (max-width: 768px) {
+    .mobile-cta {
+        display: inline-block;
+    }
+}
+
+
+
+
+/* Add smooth scroll behavior */
+html {
+    scroll-behavior: smooth;
+}
+
+/* footer */
+/* Footer Styles */
+.footer {
+    background-color: #333;
+    padding: 2rem 5%;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 2rem;
+    color: white;
+    margin-bottom: 2rem; /* Space between content and copyright */
+}
+
+/* Logo on the left */
+.footer-logo h1 a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.8rem;
+    font-weight: 700;
+    transition: color 0.3s ease;
+}
+
+.footer-logo h1 a:hover {
+    color: #6699d0;
+}
+
+/* Navigation links on the right */
+.footer-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.footer-nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: color 0.3s;
+}
+
+.footer-nav a:hover {
+    color: #6699d0;
+}
+
+/* Copyright text at the bottom */
+.footer-bottom {
+    text-align: center;
+    color: white;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: 1rem;
+}
+
+/* Scroll to top button */
+.scroll-top {
+    background-color: #5aa8fb;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+}
+
+.scroll-top:hover {
+    background-color: #6699d0;
+}
+
+.scroll-top span {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <h1><a href="index.html">Namibsroos</a></h1>
+        </div>        
+        
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="rates.html">Rates</a>
+            <a href="contact.html">Contact</a>
+        </div>
+
+        <a href="contact.html" class="cta-button">Get Started</a>
+        
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <video class="hero-video" autoplay muted loop playsinline>
+            <source src="https://videos.pexels.com/video-files/1390942/1390942-uhd_2732_1440_24fps.mp4" type="video/mp4">
+        </video>
+        <div class="hero-text">
+            <h1 class="slide-in">Welcome to Namibsroos</h1>
+            <p class="slide-in">Experience the beauty of Namibia</p>
+            <a href="contact.html" class="mobile-cta">Get Started</a>
+        </div>
+    </section>
+    
+    
+
+    <!-- footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <!-- Logo on the left -->
+            <div class="footer-logo">
+                <h1><a href="index.html">Namibsroos</a></h1>
+            </div>
+    
+            <!-- Navigation links on the right -->
+            <div class="footer-nav">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="rates.html">Rates</a>
+                <a href="contact.html">Contact</a>
+                <a href="test.html">Test</a>
+            </div>
+        </div>
+    
+        <!-- Copyright text at the bottom -->
+        <div class="footer-bottom">
+            <p>&copy; 2025 Namibsroos. All rights reserved.</p>
+        </div>
+    
+        <!-- Scroll to top button -->
+        <div class="scroll-top" id="scrollTop">
+            <span>↑</span>
+        </div>
+    </footer>
+
+    <script>
+        const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+    
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        navLinks.classList.toggle('active');
+    });
+    
+    // Close menu when clicking a link
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            navLinks.classList.remove('active');
+        });
+    });
+    
+    document.getElementById('scrollTop').addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+    
+    
+    </script>
+</body>
+
+</html>
